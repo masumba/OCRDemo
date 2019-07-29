@@ -12,5 +12,14 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:id="@+id/btnGoogleVision"
-        android:text="Google Vision"/>
+        android:text="Google Vision Text Detect"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnGoogleVision"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btnFace"
+        android:text="Google Vision Face Detect"/>
 </RelativeLayout>

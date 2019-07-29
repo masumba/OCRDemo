@@ -15,11 +15,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button btnGoogleVision = findViewById(R.id.btnGoogleVision);
+        Button btnFace = findViewById(R.id.btnFace);
 
         btnGoogleVision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,GoogleVisionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnFace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,FaceDetectionActivity.class);
                 startActivity(intent);
             }
         });

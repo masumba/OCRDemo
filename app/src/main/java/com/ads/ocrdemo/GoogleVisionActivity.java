@@ -43,6 +43,8 @@ public class GoogleVisionActivity extends AppCompatActivity {
 
         TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
 
+
+
         if (!textRecognizer.isOperational()) {
             Toast.makeText(this, "Text Detector Dependencies are not yet available", Toast.LENGTH_SHORT).show();
         } else {
@@ -95,20 +97,19 @@ public class GoogleVisionActivity extends AppCompatActivity {
                             public void run() {
                                 StringBuilder stringBuilder = new StringBuilder();
 
-                                //System.out.println("Data Seen: "+items);
-                                Pattern DATE_PATTERN = Pattern.compile("^\\d{6}/\\d{2}/\\d{1}$");
+                                //Pattern DATE_PATTERN = Pattern.compile("^\\d{6}/\\d{2}/\\d{1}$");
 
                                 for (int i = 0; i < items.size(); i++) {
                                     TextBlock item = items.valueAt(i);
-                                    //stringBuilder.append(item.getValue().trim());
-                                    //System.out.println("Data Seen Line Number ["+i+"]: "+item.getValue().trim());
+                                    stringBuilder.append(item.getValue().trim());
+                                    System.out.println("Data Seen Line Number ["+i+"]: "+item.getValue().trim());
 
-                                    if (DATE_PATTERN.matcher(item.getValue().trim()).matches()){
+                                    /*if (DATE_PATTERN.matcher(item.getValue().trim()).matches()){
                                         System.out.println("Data Seen Is An NRC : "+item.getValue().trim());
                                         stringBuilder.append(item.getValue().trim());
-                                    }
+                                    }*/
 
-                                    //stringBuilder.append("\n");
+                                    stringBuilder.append("\n");
                                 }
                                 textView.setText(stringBuilder.toString());
 
