@@ -22,4 +22,13 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/btnFace"
         android:text="Google Vision Face Detect"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnFace"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btnBoth"
+        android:text="Google Vision Face And Text"/>
 </RelativeLayout>

@@ -59,7 +59,7 @@ public class FaceDetectionActivity extends AppCompatActivity {
         if (!faceDetector.isOperational()){
             Toast.makeText(this, "Face Detector Dependencies are not yet available", Toast.LENGTH_SHORT).show();
             return;
-        } else {
+        }
             Frame frame = new Frame.Builder().setBitmap(bitmap).build();
             SparseArray<Face> faceSparseArray = faceDetector.detect(frame);
 
@@ -74,7 +74,7 @@ public class FaceDetectionActivity extends AppCompatActivity {
             }
 
             imageView.setImageDrawable(new BitmapDrawable(getResources(),tempBitmap));
-        }
+
 
 
         /**/
