@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.Frame;
+import com.google.android.gms.vision.MultiDetector;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
 import com.google.android.gms.vision.face.Landmark;
@@ -176,6 +177,25 @@ public class OcrFaceActivity extends AppCompatActivity {
             imageView.setImageDrawable(new BitmapDrawable(getResources(),tempBitmap));*/
             /**/
 
+        }
+    }
+
+    void runMultiDetector(){
+        TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
+        FaceDetector faceDetector = new FaceDetector.Builder(getApplicationContext()).build();
+
+        MultiDetector multiDetector = new MultiDetector.Builder()
+                .add(textRecognizer)
+                .add(faceDetector)
+                .build();
+
+        if (!multiDetector.isOperational()) {
+            // ...
+        } else {
+            cameraSource = new CameraSource.Builder(getApplicationContext(), multiDetector)
+                    .setFacing(CameraSource.CAMERA_FACING_BACK)
+                    .setRequestedFps(15.0f)
+                    .build();
         }
     }
 
